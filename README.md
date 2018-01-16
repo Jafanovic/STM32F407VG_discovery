@@ -9,3 +9,14 @@ Discovery kit with STM32F407VG MCU - playing
     *  Item 3a
     *  Item 3b
     *  Item 3c
+    
+*Italic characters* 
+_Italic characters_
+**bold characters**
+__bold characters__
+~~strikethrough text~~
+
+| Day     | Meal    | Price |
+| --------|---------|-------|
+| Monday  | pasta   | $6    |
+| Tuesday | chicken | $8    |
