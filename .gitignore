@@ -1,0 +1,8 @@
+
+*.d
+*.lst
+*.o
+*.elf
+*.bin
+*.map
+*.json
