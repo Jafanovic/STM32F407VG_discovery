@@ -13,7 +13,7 @@
 ######################################
 # target
 ######################################
-TARGET = STM32F407VG_test003
+TARGET = GPIO_test01
 
 
 ######################################
@@ -33,6 +33,7 @@ SOURCES_DIR =  \
 Application \
 Drivers \
 Drivers/CMSIS \
+Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates \
 Application/User \
 Application/MAKEFILE \
 Drivers/STM32F4xx_HAL_Driver
@@ -50,8 +51,8 @@ BUILD_DIR = build
 C_SOURCES =  \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c \
-Src/system_stm32f4xx.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c \
+Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c \
 Src/main.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
@@ -82,19 +83,13 @@ PERIFLIB_SOURCES =
 #######################################
 # binaries
 #######################################
-BINPATH = 
-PREFIX = arm-none-eabi-
-#CC = $(BINPATH)/$(PREFIX)gcc
-#AS = $(BINPATH)/$(PREFIX)gcc -x assembler-with-cpp
-#CP = $(BINPATH)/$(PREFIX)objcopy
-#AR = $(BINPATH)/$(PREFIX)ar
-#SZ = $(BINPATH)/$(PREFIX)size
-#Jafa
-CC = $(PREFIX)gcc
-AS = $(PREFIX)gcc -x assembler-with-cpp
-CP = $(PREFIX)objcopy
-AR = $(PREFIX)ar
-SZ = $(PREFIX)size
+BINPATH=
+PREFIX=arm-none-eabi-
+CC = $(BINPATH)$(PREFIX)gcc
+AS = $(BINPATH)$(PREFIX)gcc -x assembler-with-cpp
+CP = $(BINPATH)$(PREFIX)objcopy
+AR = $(BINPATH)$(PREFIX)ar
+SZ = $(BINPATH)$(PREFIX)size
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
  
@@ -197,7 +192,7 @@ $(BUILD_DIR):
 # clean up
 #######################################
 clean:
-	-rm -fR .dep $(BUILD_DIR)
+	-rm -fr $(BUILD_DIR)
   
 #######################################
 # dependencies
