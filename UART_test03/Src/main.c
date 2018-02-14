@@ -46,7 +46,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart2;
-
+char* buffertr="Nazdar!\n\r";
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 
@@ -94,13 +94,14 @@ int main(void)
   MX_USART2_UART_Init();
 
   /* USER CODE BEGIN 2 */
-
+  __HAL_UART_ENABLE_IT(&huart2, UART_IT_TXE);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    UART_Transmit_IT(UART_HandleTypeDef *huart);
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */

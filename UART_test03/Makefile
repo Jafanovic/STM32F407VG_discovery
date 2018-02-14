@@ -192,7 +192,7 @@ $(BUILD_DIR):
 # clean up
 #######################################
 clean:
-	-rm -fR .dep $(BUILD_DIR)
+	rm -rf *.o *.elf *.bin *.lst *.d
   
 #######################################
 # dependencies
