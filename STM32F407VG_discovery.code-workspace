@@ -13,5 +13,9 @@
 			"path": "D:\\Github\\EWARM\\STM32Cube_FW_F4"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"stm32f4xx_hal.h": "c"
+		}
+	}
 }

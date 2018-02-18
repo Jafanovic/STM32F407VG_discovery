@@ -40,13 +40,14 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
 /* Private variables ---------------------------------------------------------*/
+GPIO_TypeDef* BUTTON_PORT[BUTTONn] = {KEY_BUTTON_GPIO_PORT}; 
+const uint16_t BUTTON_PIN[BUTTONn] = {KEY_BUTTON_PIN}; 
+const uint8_t BUTTON_IRQn[BUTTONn] = {KEY_BUTTON_EXTI_IRQn};
+
 UART_HandleTypeDef huart2;
-char* buffertr="Nazdar!\n\r";
+/* Buffer used for transmission */
+uint8_t aTxBuffer[] = " ****UART_Tx_Test**** ";
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 
@@ -68,40 +69,38 @@ static void MX_USART2_UART_Init(void);
 
 int main(void)
 {
-
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
   /* MCU Configuration----------------------------------------------------------*/
-
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
   /* Configure the system clock */
   SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  /* Configure USER Button */
+  BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_GPIO);
+  /* Configure UART */
   MX_USART2_UART_Init();
-
-  /* USER CODE BEGIN 2 */
-  __HAL_UART_ENABLE_IT(&huart2, UART_IT_TXE);
-  /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  /* Wait for USER Button press before starting the Communication */
+  while (HAL_GPIO_ReadPin(BUTTON_PORT[BUTTON_KEY], BUTTON_PIN[BUTTON_KEY]) == GPIO_PIN_RESET)
+  {
+    HAL_GPIO_TogglePin(LED3_GPIO_Port, GPIO_PIN_13);
+    HAL_Delay(40);
+  }
+
+  while(HAL_GPIO_ReadPin(BUTTON_PORT[BUTTON_KEY], BUTTON_PIN[BUTTON_KEY]) == GPIO_PIN_SET)
+  {
+  }
+
   while (1)
   {
-    UART_Transmit_IT(UART_HandleTypeDef *huart);
+    if(HAL_UART_Transmit_IT(&huart2, (uint8_t*)aTxBuffer, TXBUFFERSIZE)!= HAL_OK)
+    {
+      Error_Handler();
+    }
+
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -214,10 +213,48 @@ static void MX_GPIO_Init(void)
 
 }
 
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
-
+/**
+  * @brief  Configures Button GPIO and EXTI Line.
+  * @param  Button: Specifies the Button to be configured.
+  *   This parameter should be: BUTTON_KEY
+  * @param  Mode: Specifies Button mode.
+  *   This parameter can be one of following parameters:   
+  *     @arg BUTTON_MODE_GPIO: Button will be used as simple IO 
+  *     @arg BUTTON_MODE_EXTI: Button will be connected to EXTI line with interrupt
+  *                            generation capability  
+  */
+void BSP_PB_Init(Button_TypeDef Button, ButtonMode_TypeDef Mode)
+{
+  GPIO_InitTypeDef GPIO_InitStruct;
+  
+  /* Enable the BUTTON Clock */
+  BUTTONx_GPIO_CLK_ENABLE(Button);
+  
+  if (Mode == BUTTON_MODE_GPIO)
+  {
+    /* Configure Button pin as input */
+    GPIO_InitStruct.Pin = BUTTON_PIN[Button];
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
+    
+    HAL_GPIO_Init(BUTTON_PORT[Button], &GPIO_InitStruct);
+  }
+  
+  if (Mode == BUTTON_MODE_EXTI)
+  {
+    /* Configure Button pin as input with External interrupt */
+    GPIO_InitStruct.Pin = BUTTON_PIN[Button];
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING; 
+    HAL_GPIO_Init(BUTTON_PORT[Button], &GPIO_InitStruct);
+    
+    /* Enable and set Button EXTI Interrupt to the lowest priority */
+    HAL_NVIC_SetPriority((IRQn_Type)(BUTTON_IRQn[Button]), 0x0F, 0);
+    HAL_NVIC_EnableIRQ((IRQn_Type)(BUTTON_IRQn[Button]));
+  }
+}
 /**
   * @brief  This function is executed in case of error occurrence.
   * @param  None
