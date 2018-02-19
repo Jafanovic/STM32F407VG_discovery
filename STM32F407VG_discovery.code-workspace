@@ -1,16 +1,16 @@
 {
 	"folders": [
 		{
-			"path": "UART_test03"
-		},
-		{
-			"path": "GPIO_test02"
-		},
-		{
 			"path": "D:\\Github\\EWARM\\STM32Cube_FW_F4"
 		},
 		{
 			"path": "test01_GPIO"
+		},
+		{
+			"path": "test02_GPIO"
+		},
+		{
+			"path": "test03_UART"
 		}
 	],
 	"settings": {
