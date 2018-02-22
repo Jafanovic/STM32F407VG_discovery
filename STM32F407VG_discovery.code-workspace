@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "test03_UART"
+		},
+		{
+			"path": "test04_ADC"
 		}
 	],
 	"settings": {
