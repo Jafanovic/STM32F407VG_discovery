@@ -14,6 +14,9 @@
 		},
 		{
 			"path": "test04_ADC"
+		},
+		{
+			"path": "test05_TIM"
 		}
 	],
 	"settings": {

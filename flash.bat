@@ -1,0 +1,1 @@
+"c:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility\ST-LINK_CLI.exe" -ME -P test04_ADC.hex 0x08000000 -V

@@ -1,0 +1,1 @@
+"c:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility\ST-LINK_CLI.exe" -ME -P "d:\Github\EWARM\STM32F407VG_discovery\test04_ADC\build\test04_ADC.hex" 0x08000000 -V
