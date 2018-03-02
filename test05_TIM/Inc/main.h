@@ -55,8 +55,6 @@
 #define LED3_GPIO_Port GPIOD
 #define LED5_Pin GPIO_PIN_14
 #define LED5_GPIO_Port GPIOD
-#define LED6_Pin GPIO_PIN_15
-#define LED6_GPIO_Port GPIOD
 
 /* ########################## Assert Selection ############################## */
 /**
