@@ -1,28 +1,17 @@
 {
 	"folders": [
 		{
-			"path": "D:\\Github\\EWARM\\STM32Cube_FW_F4"
-		},
-		{
 			"path": "test01_GPIO"
 		},
 		{
 			"path": "test02_GPIO"
-		},
-		{
-			"path": "test03_UART"
-		},
-		{
-			"path": "test04_ADC"
-		},
-		{
-			"path": "test05_TIM"
 		}
 	],
 	"settings": {
 		"files.associations": {
 			"stm32f4xx_hal.h": "c",
-			"main.h": "c"
+			"stm32f4xx_hal_conf.h": "c",
+			"stm32f4xx_hal_rcc.h": "c"
 		}
 	}
 }

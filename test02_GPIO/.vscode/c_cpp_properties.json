@@ -46,13 +46,11 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.10.25017/include/*",
-                "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.10.25017/atlmfc/include/*",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/um",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/ucrt",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/shared",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/winrt",
-                "${workspaceRoot}"
+                "${workspaceRoot}",
+                "${workspaceRoot}/Inc",
+                "${workspaceRoot}/Drivers/STM32F4xx_HAL_Driver/Inc",
+                "C:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/arm-none-eab/include",
+                "${workspaceRoot}/Drivers/CMSIS/Device/ST/STM32F4xx/Include"
             ],
             "defines": [
                 "_DEBUG",
@@ -61,12 +59,7 @@
             "intelliSenseMode": "msvc-x64",
             "browse": {
                 "path": [
-                    "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.10.25017/include/*",
-                    "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.10.25017/atlmfc/include/*",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/um",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/ucrt",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/shared",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/winrt",
+                    "C:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/arm-none-eab/include",
                     "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
