@@ -51,7 +51,7 @@
 #include "cmsis_os.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "main_tasks.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
