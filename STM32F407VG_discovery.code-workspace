@@ -5,13 +5,32 @@
 		},
 		{
 			"path": "test02_GPIO"
+		},
+		{
+			"path": "test03_UART"
+		},
+		{
+			"path": "test04_ADC"
+		},
+		{
+			"path": "test05_TIM"
+		},
+		{
+			"path": "test06_FreeRTOS"
+		},
+		{
+			"path": "test07_CMSIS_LED"
 		}
 	],
 	"settings": {
 		"files.associations": {
 			"stm32f4xx_hal.h": "c",
 			"stm32f4xx_hal_conf.h": "c",
-			"stm32f4xx_hal_rcc.h": "c"
+			"stm32f4xx_hal_rcc.h": "c",
+			"stm32f4xx_hal_def.h": "c",
+			"stdio.h": "c",
+			"stm32f407xx.h": "c",
+			"main.h": "c"
 		}
 	}
 }
