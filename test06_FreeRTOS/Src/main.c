@@ -51,11 +51,19 @@
 #include "cmsis_os.h"
 
 /* USER CODE BEGIN Includes */
+#include "main_tasks.h"
 
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "timers.h"
+#include "semphr.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+
+DAC_HandleTypeDef hdac;
 
 TIM_HandleTypeDef htim4;
 
@@ -65,7 +73,9 @@ osThreadId defaultTaskHandle;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-
+/* definice priority uloh a velikosti zasobniku */
+#define mainPSDTask_PRIORITY ( tskIDLE_PRIORITY + 1 )
+#define mainPSDTask_STACK_SIZE ( configMINIMAL_STACK_SIZE + 800 )
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,8 +84,9 @@ static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM4_Init(void);
+static void MX_DAC_Init(void);
 void StartDefaultTask(void const * argument);
-                                    
+
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
                                 
 
@@ -120,6 +131,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_ADC1_Init();
   MX_TIM4_Init();
+  MX_DAC_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -257,6 +269,31 @@ static void MX_ADC1_Init(void)
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+}
+
+/* DAC init function */
+static void MX_DAC_Init(void)
+{
+
+  DAC_ChannelConfTypeDef sConfig;
+
+    /**DAC Initialization 
+    */
+  hdac.Instance = DAC;
+  if (HAL_DAC_Init(&hdac) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+    /**DAC channel OUT1 config 
+    */
+  sConfig.DAC_Trigger = DAC_TRIGGER_SOFTWARE;
+  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+  if (HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
