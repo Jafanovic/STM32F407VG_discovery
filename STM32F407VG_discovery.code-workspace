@@ -30,7 +30,8 @@
 			"stm32f4xx_hal_def.h": "c",
 			"stdio.h": "c",
 			"stm32f407xx.h": "c",
-			"main.h": "c"
+			"main.h": "c",
+			"main_tasks.h": "c"
 		}
 	}
 }

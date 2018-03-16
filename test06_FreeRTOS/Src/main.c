@@ -46,7 +46,7 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "main_tasks.h"
 #include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
 
@@ -155,6 +155,7 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  xTaskCreate(vPSDTask, "PSD1", mainPSDTask_STACK_SIZE, NULL, mainPSDTask_PRIORITY, NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
