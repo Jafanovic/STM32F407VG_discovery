@@ -56,6 +56,9 @@
 #define LED5_Pin GPIO_PIN_14
 #define LED5_GPIO_Port GPIOD
 
+/* Size of Reception buffer */
+#define RXBUFFERSIZE         1
+
 /* ########################## Assert Selection ############################## */
 /**
   * @brief Uncomment the line below to expanse the "assert_param" macro in the 

@@ -1,3 +1,20 @@
+/*------------------------------------------------------------------------------  
+    PROGRAM PRO PSD REGULATOR V SYSTEMU FreeRTOS v 8.0.0
+    
+    main_tasks.h  - HLAVICKOVY SOUBOR PRO ULOHY
+                    obsahuje inicializacni definice parametru a konstant regulatoru,
+                    dale globalni promenne a funkce a strukturu pro predavani parametru
+                    
+    autor:  Adolf Gothard, xgotha01
+            UAMT FEKT VUT v Brne, 2014
+    
+    vytvoreno v ramci diplomove prace
+    "Implementace RTOS do mikrokontroleru STM32 s jadrem ARM Cortex-M4F"
+    
+------------------------------------------------------------------------------*/
+
+
+
 #ifndef MAIN_TASKS_H_
 #define MAIN_TASKS_H_
 

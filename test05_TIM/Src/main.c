@@ -53,6 +53,7 @@ UART_HandleTypeDef huart2;
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 uint32_t pwm_value;
+uint8_t aRxBuffer[RXBUFFERSIZE];
 uint32_t step;
 /* USER CODE END PV */
 
@@ -110,6 +111,11 @@ int main(void)
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
+   /*## Put UART peripheral in reception process ###########################*/  
+  if(HAL_UART_Receive_IT(&huart2, (uint8_t *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,6 +126,9 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
+   while((*aRxBuffer) != 10)
+  {
+  }
     HAL_Delay(100); 
     if(pwm_value == 0) step = 100;
     if(pwm_value == 2000) step = -100;

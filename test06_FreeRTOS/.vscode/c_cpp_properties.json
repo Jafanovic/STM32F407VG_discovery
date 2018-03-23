@@ -57,7 +57,12 @@
                 "${workspaceRoot}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
                 "${workspaceRoot}/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS",
                 "${workspaceRoot}/Middlewares/Third_Party/FreeRTOS/Source/include",
-                "${workspaceRoot}/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+                "${workspaceRoot}/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
+                "${workspaceRoot}/lib/inc",
+                "${workspaceRoot}/lib/inc/core",
+                "${workspaceRoot}/lib/inc/peripherals",
+                "${workspaceRoot}/FreeRTOS/Source/include",
+                "${workspaceRoot}/FreeRTOS/Source/portable/GCC/ARM_CM4F"
             ],
             "defines": [
                 "_DEBUG",

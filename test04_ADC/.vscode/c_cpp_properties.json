@@ -58,6 +58,9 @@
             "defines": [
                 "_DEBUG",
                 "UNICODE",
+                "STM32F4xx",
+                "USE_HAL_DRIVER",
+                "__STM32F4xx_HAL_RCC_H",
                 "_UNICODE"
             ],
             "intelliSenseMode": "msvc-x64",
