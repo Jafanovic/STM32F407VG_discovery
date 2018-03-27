@@ -13,13 +13,16 @@
 			"path": "test04_ADC"
 		},
 		{
-			"path": "test05_TIM"
+			"path": "test06_FreeRTOS",
+			"name": "test06_FreeRTOS"
 		},
 		{
-			"path": "test06_FreeRTOS"
+			"path": "test05_TIM",
+			"name": "test05_TIM"
 		},
 		{
-			"path": "test07_CMSIS_LED"
+			"path": "test07_CMSIS_LED",
+			"name": "test07_CMSIS_LED"
 		}
 	],
 	"settings": {
