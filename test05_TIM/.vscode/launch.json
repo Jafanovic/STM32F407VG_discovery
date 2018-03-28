@@ -5,11 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug",
+            "name": "GDB",
             "type": "gdb",
             "request": "launch",
-            "target": "./bin/executable",
-            "cwd": "${workspaceRoot}"
+            "cwd": "${workspaceRoot}",
+            "target": "${workspaceRoot}/build/test05_TIM.elf", 
+            "gdbpath" : "C:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/bin/arm-none-eabi-gdb.exe",
+            "autorun": [
+                "target remote localhost:3333",
+                "symbol-file .//build/test05_TIM.elf",
+                "monitor reset halt" 
+                ]
         }
     ]
 }

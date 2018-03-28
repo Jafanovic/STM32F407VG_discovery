@@ -16,6 +16,19 @@
                 "symbol-file .//build/GPIO_test01.elf",
                 "monitor reset halt" 
                 ]
+        },
+        {
+            "name": "GDB1",
+            "type": "gdb",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "target": "${workspaceRoot}/build/test05_TIM.elf", 
+            "gdbpath" : "C:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/bin/arm-none-eabi-gdb.exe",
+            "autorun": [
+                "target remote localhost:3333",
+                "symbol-file .//build/test05_TIM.elf",
+                "monitor reset halt" 
+                ]
         }
     ]
 }
