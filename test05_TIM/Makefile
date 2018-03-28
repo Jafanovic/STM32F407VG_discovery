@@ -71,7 +71,7 @@ Src/main.c
 
 # ASM sources
 ASM_SOURCES =  \
-..\Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\gcc\startup_stm32f407xx.s
+../Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f407xx.s
 
 
 ######################################
