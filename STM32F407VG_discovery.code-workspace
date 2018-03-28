@@ -1,48 +1,8 @@
 {
 	"folders": [
 		{
-			"path": "Drivers",
-			"name": "Drivers"
-		},
-		{
-			"path": "test01_GPIO",
-			"name": "test01_GPIO"
-		},
-		{
-			"path": "test02_GPIO",
-			"name": "test02_GPIO"
-		},
-		{
-			"path": "test04_ADC",
-			"name": "test04_ADC"
-		},
-		{
-			"path": "test05_TIM",
-			"name": "test05_TIM"
-		},
-		{
-			"path": "test06_FreeRTOS",
-			"name": "test06_FreeRTOS"
-		},
-		{
-			"path": "test07_CMSIS_LED",
-			"name": "test07_CMSIS_LED"
-		},
-		{
-			"path": "test03_UART",
-			"name": "test03_UART"
+			"path": "."
 		}
 	],
-	"settings": {
-		"files.associations": {
-			"stm32f4xx_hal.h": "c",
-			"stm32f4xx_hal_conf.h": "c",
-			"stm32f4xx_hal_rcc.h": "c",
-			"stm32f4xx_hal_def.h": "c",
-			"stdio.h": "c",
-			"stm32f407xx.h": "c",
-			"main.h": "c",
-			"main_tasks.h": "c"
-		}
-	}
+	"settings": {}
 }

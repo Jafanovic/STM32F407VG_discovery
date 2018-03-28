@@ -5,28 +5,28 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "GDB",
+            "name": "test01_GPIO",
             "type": "gdb",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "target": "${workspaceRoot}/build/GPIO_test01.elf", 
+            "target": "${workspaceRoot}/test01_GPIO/build/GPIO_test01.elf", 
             "gdbpath" : "C:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/bin/arm-none-eabi-gdb.exe",
             "autorun": [
                 "target remote localhost:3333",
-                "symbol-file .//build/GPIO_test01.elf",
+                "symbol-file .//test01_GPIO/build/GPIO_test01.elf",
                 "monitor reset halt" 
                 ]
-        },
+        },       
         {
-            "name": "GDB1",
+            "name": "test05_TIM",
             "type": "gdb",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "target": "${workspaceRoot}/build/test05_TIM.elf", 
+            "target": "${workspaceRoot}/test05_TIM/build/test05_TIM.elf", 
             "gdbpath" : "C:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/bin/arm-none-eabi-gdb.exe",
             "autorun": [
                 "target remote localhost:3333",
-                "symbol-file .//build/test05_TIM.elf",
+                "symbol-file .//test05_TIM/build/test05_TIM.elf",
                 "monitor reset halt" 
                 ]
         }
