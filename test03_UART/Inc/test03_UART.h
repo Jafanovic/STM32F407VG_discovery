@@ -1,8 +1,7 @@
 /**
   ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
+  * File Name          : main.hpp
+  * Description        : This file contains the common defines of the application
   ******************************************************************************
   ** This notice applies to any and all portions of this file
   * that are not between comment pairs USER CODE BEGIN and
@@ -36,18 +35,26 @@
   *
   ******************************************************************************
   */
-
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H__
-#define __MAIN_H__
-
+#ifndef __test03_UART_H
+#define __test03_UART_H
 /* Includes ------------------------------------------------------------------*/
+#include "stm32f4xx_hal.h"
 
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
+/* Exported macro ------------------------------------------------------------*/
+#define COUNTOF(__BUFFER__)   (sizeof(__BUFFER__) / sizeof(*(__BUFFER__)))
 
 /* Private define ------------------------------------------------------------*/
+typedef enum 
+{  
+  BUTTON_KEY = 0,
+} Button_TypeDef;
+
+typedef enum 
+{  
+  BUTTON_MODE_GPIO = 0,
+  BUTTON_MODE_EXTI = 1
+} ButtonMode_TypeDef; 
 
 #define LED4_Pin GPIO_PIN_12
 #define LED4_GPIO_Port GPIOD
@@ -55,9 +62,36 @@
 #define LED3_GPIO_Port GPIOD
 #define LED5_Pin GPIO_PIN_14
 #define LED5_GPIO_Port GPIOD
+#define LED6_Pin GPIO_PIN_15
+#define LED6_GPIO_Port GPIOD
 
-/* Size of Reception buffer */
-#define RXBUFFERSIZE         1
+/** @defgroup STM32F4_DISCOVERY_LOW_LEVEL_BUTTON STM32F4 DISCOVERY LOW LEVEL BUTTON
+  * @{
+  */  
+#define BUTTONn                          1 
+
+/**
+ * @brief Wakeup push-button
+ */
+#define KEY_BUTTON_PIN                GPIO_PIN_0
+#define KEY_BUTTON_GPIO_PORT          GPIOA
+#define KEY_BUTTON_GPIO_CLK_ENABLE()  __HAL_RCC_GPIOA_CLK_ENABLE()
+#define KEY_BUTTON_GPIO_CLK_DISABLE() __HAL_RCC_GPIOA_CLK_DISABLE()
+#define KEY_BUTTON_EXTI_IRQn          EXTI0_IRQn 
+
+#define BUTTONx_GPIO_CLK_ENABLE(__INDEX__)    do{if((__INDEX__) == 0) KEY_BUTTON_GPIO_CLK_ENABLE(); \
+                                                }while(0)
+
+#define BUTTONx_GPIO_CLK_DISABLE(__INDEX__)    do{if((__INDEX__) == 0) KEY_BUTTON_GPIO_CLK_DISABLE(); \
+                                                 }while(0)
+
+/* Size of Transmission buffer */
+#define TXBUFFERSIZE                      (COUNTOF(aTxBuffer) - 1)
+
+/** @defgroup STM32F4_DISCOVERY_LOW_LEVEL_Exported_Functions STM32F4 DISCOVERY LOW LEVEL Exported Functions
+  * @{
+  */
+void     BSP_PB_Init(Button_TypeDef Button, ButtonMode_TypeDef Mode);
 
 /* ########################## Assert Selection ############################## */
 /**
@@ -80,6 +114,13 @@ void _Error_Handler(char *, int);
 }
 #endif
 
-#endif /* __MAIN_H__ */
+/**
+  * @}
+  */ 
 
+/**
+  * @}
+*/ 
+
+#endif /* __MAIN_H */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

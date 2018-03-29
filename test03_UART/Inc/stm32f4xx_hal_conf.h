@@ -40,7 +40,7 @@
  extern "C" {
 #endif
 
-#include "main.h"
+#include "test03_UART.h"
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 

@@ -64,7 +64,7 @@ C_SOURCES =  \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c \
-Src/main.c \
+Src/test01_GPIO.c \
 Src/gpio.c \
 Src/stm32f4xx_it.c \
 Src/stm32f4xx_hal_msp.c

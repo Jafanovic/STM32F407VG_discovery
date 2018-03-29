@@ -45,18 +45,18 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.10.25017/include/*",
-                "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.10.25017/atlmfc/include/*",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/um",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/ucrt",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/shared",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/winrt",
+                "c:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/arm-none-eabi/include",
+                "c:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/lib/gcc/arm-none-eabi/7.2.1/include",
+                "c:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/*",
+                "c:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+                "c:/Program Files (x86)/GNU Tools ARM Embedded/7 2017-q4-major/arm-none-eabi/include/c++/7.2.1/parallel",
                 "${workspaceRoot}",
                 "${workspaceRoot}/Drivers/STM32F4xx_HAL_Driver/Inc",
                 "${workspaceRoot}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
                 "${workspaceRoot}/Drivers/CMSIS/Include",
                 "${workspaceRoot}/test04_ADC/Inc",
-                "${workspaceRoot}/test05_TIM/Inc"
+                "${workspaceRoot}/test05_TIM/Inc",
+                "${workspaceRoot}/test03_UART/Inc"
             ],
             "defines": [
                 "_DEBUG",
@@ -69,17 +69,13 @@
             "intelliSenseMode": "msvc-x64",
             "browse": {
                 "path": [
-                    "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.10.25017/include/*",
-                    "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.10.25017/atlmfc/include/*",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/um",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/ucrt",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/shared",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.15063.0/winrt",
                     "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
-            }
+            },
+            "cStandard": "c11",
+            "cppStandard": "c++17"
         }
     ],
     "version": 3

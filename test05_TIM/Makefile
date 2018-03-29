@@ -67,7 +67,7 @@ C_SOURCES =  \
 Src/system_stm32f4xx.c \
 Src/stm32f4xx_hal_msp.c \
 Src/stm32f4xx_it.c \
-Src/main.c 
+Src/test05_TIM.c 
 
 # ASM sources
 ASM_SOURCES =  \
