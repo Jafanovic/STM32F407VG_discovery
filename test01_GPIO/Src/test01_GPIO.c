@@ -30,10 +30,12 @@ int main(void)
 
   while (1)
   {
-  HAL_GPIO_WritePin(GPIOD, LED4_Pin|LED3_Pin|LED5_Pin|LED6_Pin, GPIO_PIN_RESET);
-  delay(1000000);
-  HAL_GPIO_WritePin(GPIOD, LED4_Pin|LED3_Pin|LED5_Pin|LED6_Pin, GPIO_PIN_SET);
-  delay(1000000);
+  // HAL_GPIO_WritePin(GPIOD, LED4_Pin|LED3_Pin|LED5_Pin|LED6_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOD, OUT1| OUT2| OUT3| OUT4, GPIO_PIN_RESET);
+  delay(3000000);
+  // HAL_GPIO_WritePin(GPIOD, LED4_Pin|LED3_Pin|LED5_Pin|LED6_Pin, GPIO_PIN_SET);
+   HAL_GPIO_WritePin(GPIOD, OUT1| OUT2| OUT3| OUT4, GPIO_PIN_SET);
+  delay(3000000);
   
   }
 }

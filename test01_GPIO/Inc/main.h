@@ -56,6 +56,11 @@
 #define LED6_Pin GPIO_PIN_15
 #define LED6_GPIO_Port GPIOD
 
+#define OUT4 GPIO_PIN_12
+#define OUT3 GPIO_PIN_13
+#define OUT2 GPIO_PIN_14
+#define OUT1 GPIO_PIN_15
+#define LED4_GPIO_Port GPIOD
 /* ########################## Assert Selection ############################## */
 /**
   * @brief Uncomment the line below to expanse the "assert_param" macro in the 
